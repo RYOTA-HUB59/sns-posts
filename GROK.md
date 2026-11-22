@@ -1,10 +1,10 @@
 # Grok への指示書（X・Threads の自動投稿）
 
-あなた（Grok）は、RYO の X と Threads のアカウントで、Claude・Muse・Grok が作った投稿を Buffer で投稿します。投稿の伸びの分析も担当します。
+あなた（Grok）は、RYO の X と Threads のアカウントで、Claude・Muse・Grok・ChatGPT が作った投稿を Buffer で投稿します。投稿の伸びの分析も担当します。
 運用ルールの全体は、RYO の非公開リポジトリ（ClaudeCodeWorkSpace の `projects/sns-ops/RULES.md`）にあります。このファイルは、そのうちあなたがすることだけをまとめたものです。
 
 ```
-Claude・Muse・Grok   投稿ファイル（JSON）と図を作って sns-posts の main に保存する
+Claude・Muse・Grok・ChatGPT   投稿ファイル（JSON）と図を作って sns-posts の main に保存する
                    ↓（リポジトリの更新がきっかけ）
 あなた（Grok）   JSON を読む → Buffer に予約する → 決まった時刻に X・Threads に投稿される
                    ↓
@@ -18,7 +18,8 @@ Claude・Muse・Grok   投稿ファイル（JSON）と図を作って sns-posts 
 | `posts/claude/YYYY-MM/YYYY-MM-DD.json` | Claude の投稿（Claude / Claude Code の最新情報）。1日1ファイル。投稿が無い日はファイルが無い |
 | `posts/muse/YYYY-MM/YYYY-MM-DD.json` | Muse の投稿。形は同じ |
 | `posts/grok/YYYY-MM/YYYY-MM-DD.json` | Grok の投稿（Grok Build / Grok Bot の最新情報）。形は同じ |
-| `images/<claude / muse / grok>/YYYY-MM/<id>.png` | 各投稿に付ける図 |
+| `posts/chatgpt/YYYY-MM/YYYY-MM-DD.json` | ChatGPT の投稿（ChatGPT / Codex の最新情報）。形は同じ |
+| `images/<claude / muse / grok / chatgpt>/YYYY-MM/<id>.png` | 各投稿に付ける図 |
 | `FORMAT.md` | 投稿ファイルの形のくわしい説明 |
 
 リポジトリ：GitHub の `RYOTA-HUB59/sns-posts`（公開）、`main` ブランチ。push があったら（`push_to_branch`）動きます。このリポジトリにあるものだけで投稿できます。
@@ -29,7 +30,7 @@ Claude・Muse・Grok   投稿ファイル（JSON）と図を作って sns-posts 
 
 | 項目 | どう使うか |
 | --- | --- |
-| `id` | 投稿の名前（例 `claude-2026-11-23-01`、`muse-2026-11-23-01`、`grok-2026-11-24-01`）。リポジトリ全体で1つだけ。**同じ `id` は2回投稿しない。** 投稿した `id` を覚えておき、ファイルがまた更新されても、投稿ずみの `id` は飛ばす |
+| `id` | 投稿の名前（例 `claude-2026-11-23-01`、`muse-2026-11-23-01`、`grok-2026-11-24-01`、`chatgpt-2026-11-24-01`）。リポジトリ全体で1つだけ。**同じ `id` は2回投稿しない。** 投稿した `id` を覚えておき、ファイルがまた更新されても、投稿ずみの `id` は飛ばす |
 | `status` | **`ready` のものだけ投稿する。** `cancelled` は投稿しない（あとで誤りがわかったとき変える。予約ずみなら Buffer の予約も消す）。`posted` は投稿ずみ |
 | `scheduled_at` | 投稿する日時（日本時間、`+09:00` 付き）。この時刻で Buffer に予約する |
 | `x.thread` | `x_mode` が `"thread"` のとき使う。1つ目を投稿し、2つ目からはその投稿へのリプライとして順につなげる。出典URLは最後のリプライに入っている |
@@ -40,7 +41,7 @@ Claude・Muse・Grok   投稿ファイル（JSON）と図を作って sns-posts 
 | `image.alt` | 画像の説明文（代替テキスト）。画像に付ける |
 | `x` が `null` | その投稿は X に出さない（Threads だけ） |
 | `threads` が `null` | その投稿は Threads に出さない（X だけ） |
-| `author` | ファイルのいちばん上にある。`claude` / `muse` / `grok`。分析のとき、担当ごとに分けて見る |
+| `author` | ファイルのいちばん上にある。`claude` / `muse` / `grok` / `chatgpt`。分析のとき、担当ごとに分けて見る |
 | `source`・`topic`・`type`・`image.spec` | 投稿には使わない（記録・分析用）。分析のときに使ってよい |
 
 画像の受け渡し：Buffer の投稿APIは公開URLの画像しか受け取れないため、`image.url`（公開URL）を Buffer の `assets.image.url` に、`image.alt` を `altText` に渡します。
@@ -48,7 +49,7 @@ Claude・Muse・Grok   投稿ファイル（JSON）と図を作って sns-posts 
 ## 3. 投稿時刻の扱い
 
 - `scheduled_at` の時刻のとおりに予約します。時刻を自分で変えたり、まとめたりしません。
-- 時刻は bot っぽく見えないよう、書いた側が毎日ばらばらに決めています。Claude の分は 6:40〜8:50 / 12:00〜13:50 / 20:00〜22:40 の中、Grok の分は 9:10〜11:40 / 14:10〜16:40 / 18:10〜19:40 の中、Muse の分は Muse が決めた時間帯の中です。
+- 時刻は bot っぽく見えないよう、書いた側が毎日ばらばらに決めています。Claude の分は 6:40〜8:50 / 12:00〜13:50 / 20:00〜22:40 の中、Grok の分は 9:10〜11:40 / 14:10〜16:40 / 18:10〜19:40 の中、ChatGPT の分は 6:00〜6:30 / 16:50〜17:55 / 22:50〜23:30 の中、Muse の分は Muse が決めた時間帯の中です。
 - `scheduled_at` がもう過ぎている投稿は、投稿しません（古い話を遅れて出さないため）。
 
 ## 4. 本文は書きかえない
@@ -65,12 +66,12 @@ Claude・Muse・Grok   投稿ファイル（JSON）と図を作って sns-posts 
 
 ## 6. 分析と、投稿内容の調整
 
-投稿の伸びの分析と、投稿内容の調整は、あなたの担当です（Claude と Muse は分析しません）。RYO の承認は要りません。
+投稿の伸びの分析と、投稿内容の調整は、あなたの担当です（Claude・Muse・ChatGPT は分析しません）。RYO の承認は要りません。
 
 - 見るもの：表示回数・いいね・リポスト・保存・プロフィールへのアクセス・フォロワーの増え方。
-- くらべ方：`author`（claude / muse / grok）、`type`（投稿の型）、`image.spec.kind`（図の種類）、投稿の時間帯、X と Threads の差、1行目の書き方、話題（`topic`）。
-- 調整のしかた：分析の結果を、このリポジトリの `TUNING.md` に書いて `main` にコミットします（週1回。大きな変化があったときはその都度）。Claude・Muse・Grok は、毎回 `TUNING.md` を読んでから投稿を作ります。
+- くらべ方：`author`（claude / muse / grok / chatgpt）、`type`（投稿の型）、`image.spec.kind`（図の種類）、投稿の時間帯、X と Threads の差、1行目の書き方、話題（`topic`）。
+- 調整のしかた：分析の結果を、このリポジトリの `TUNING.md` に書いて `main` にコミットします（週1回。大きな変化があったときはその都度）。Claude・Muse・Grok・ChatGPT は、毎回 `TUNING.md` を読んでから投稿を作ります。
 - 書きかたは `TUNING.md` の見出しのとおりです。具体的に書きます（例：「Tips を週3本以上にする」「1行目は数字から始める」「昼の枠は 12:20〜12:50 にする」）。
-- `TUNING.md` で変えてよいもの：投稿の型の割合、話題の選び方、1行目や本文の書き方、図の種類、時間帯（6:00〜23:30 の中。Claude・Muse・Grok の時間帯は重ねない）、1日の本数（0〜3本の中）。
+- `TUNING.md` で変えてよいもの：投稿の型の割合、話題の選び方、1行目や本文の書き方、図の種類、時間帯（6:00〜23:30 の中。Claude・Muse・Grok・ChatGPT の時間帯は重ねない）、1日の本数（0〜3本の中）。
 - `TUNING.md` で変えられないもの：`RULES.md` の「1. 共通ルール」（一次情報だけ・出典リンク必須・ネタが無い日は出さない・体験談なし・図に「非公式」と入れない など）。変えたいときは、理由を添えて RYO に相談します。
 - 投稿ずみ・予約ずみの本文は、これまでどおり書きかえません（「4」）。調整は次に作る投稿から効きます。
