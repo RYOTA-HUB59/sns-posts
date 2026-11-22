@@ -1,10 +1,11 @@
 {
+  "author": "claude",
   "date": "2026-11-23",
   "x_mode": "thread",
   "generated_at": "2026-11-22T14:10:00+09:00",
   "posts": [
     {
-      "id": "2026-11-23-01",
+      "id": "claude-2026-11-23-01",
       "status": "ready",
       "scheduled_at": "2026-11-23T08:07:00+09:00",
       "type": "速報要約",
@@ -18,8 +19,8 @@
         "quote": "2.1.330 (November 20, 2026): Changed recurring scheduled tasks and `/loop` to run up to 30 days instead of 7 while their session keeps running, and say when they end; tasks made before this release still end at 7 days"
       },
       "image": {
-        "url": "https://raw.githubusercontent.com/RYOTA-HUB59/sns-posts/main/images/2026-11/2026-11-23-01.png",
-        "path": "images/2026-11/2026-11-23-01.png",
+        "url": "https://raw.githubusercontent.com/RYOTA-HUB59/sns-posts/main/images/claude/2026-11/claude-2026-11-23-01.png",
+        "path": "images/claude/2026-11/claude-2026-11-23-01.png",
         "alt": "定期タスクと/loopの最長期間が7日から30日に変わったことを示す、前後の比較図",
         "spec": {
           "kind": "before_after",
@@ -53,7 +54,7 @@
       }
     },
     {
-      "id": "2026-11-23-02",
+      "id": "claude-2026-11-23-02",
       "status": "ready",
       "scheduled_at": "2026-11-23T12:38:00+09:00",
       "type": "Tips",
@@ -67,8 +68,8 @@
         "quote": "2.1.328 (November 19, 2026): Changed `/code-review` on most models to report only bugs and CLAUDE.md violations; run `/simplify` for reuse, simplification and efficiency cleanups / Changed `/code-review` to mark each finding Important, Pre-existing or Nit on most models, and to end each summary with a suggested fix"
       },
       "image": {
-        "url": "https://raw.githubusercontent.com/RYOTA-HUB59/sns-posts/main/images/2026-11/2026-11-23-02.png",
-        "path": "images/2026-11/2026-11-23-02.png",
+        "url": "https://raw.githubusercontent.com/RYOTA-HUB59/sns-posts/main/images/claude/2026-11/claude-2026-11-23-02.png",
+        "path": "images/claude/2026-11/claude-2026-11-23-02.png",
         "alt": "/code-reviewはバグとCLAUDE.md違反、/simplifyは共通化・単純化・効率化を見る、という対応表",
         "spec": {
           "kind": "table",
@@ -103,7 +104,7 @@
       }
     },
     {
-      "id": "2026-11-23-03",
+      "id": "claude-2026-11-23-03",
       "status": "ready",
       "scheduled_at": "2026-11-23T21:23:00+09:00",
       "type": "知られざる小ネタ",
@@ -117,8 +118,8 @@
         "quote": "2.1.329 (November 19, 2026): Added this session's scheduled tasks, `/loop` wakeups, the goal and this conversation's forks to `/tasks`; x stops one after asking / Changed the `/tasks` header and the footer's background count to one number covering shells, monitors, MCP calls, agents, workflows and scheduled tasks"
       },
       "image": {
-        "url": "https://raw.githubusercontent.com/RYOTA-HUB59/sns-posts/main/images/2026-11/2026-11-23-03.png",
-        "path": "images/2026-11/2026-11-23-03.png",
+        "url": "https://raw.githubusercontent.com/RYOTA-HUB59/sns-posts/main/images/claude/2026-11/claude-2026-11-23-03.png",
+        "path": "images/claude/2026-11/claude-2026-11-23-03.png",
         "alt": "/tasksに定期タスク・/loopの予約・会話のフォークが並ぶようになったことを示す図",
         "spec": {
           "kind": "points",

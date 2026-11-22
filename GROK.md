@@ -1,10 +1,10 @@
-# Grok への指示書（Claude最新情報の自動投稿）
+# Grok への指示書（X・Threads の自動投稿）
 
-あなた（Grok）は、RYO の X と Threads のアカウントで、Claude が作った投稿を Buffer で投稿します。投稿の伸びの分析も担当します。
+あなた（Grok）は、RYO の X と Threads のアカウントで、Claude と Muse が作った投稿を Buffer で投稿します。投稿の伸びの分析も担当します。
 運用ルールの全体は、RYO の非公開リポジトリ（ClaudeCodeWorkSpace の `projects/sns-ops/RULES.md`）にあります。このファイルは、そのうちあなたがすることだけをまとめたものです。
 
 ```
-毎朝 5:50ごろ  Claude が投稿ファイル（JSON）と図を作って sns-posts の main に保存する
+Claude・Muse   投稿ファイル（JSON）と図を作って sns-posts の main に保存する
                    ↓（リポジトリの更新がきっかけ）
 あなた（Grok）   JSON を読む → Buffer に予約する → 決まった時刻に X・Threads に投稿される
                    ↓
@@ -15,8 +15,10 @@
 
 | ファイル | 中身 |
 | --- | --- |
-| `posts/YYYY-MM/YYYY-MM-DD.json` | その日の投稿（1日1ファイル。ネタが無い日はファイルが無い） |
-| `images/YYYY-MM/<id>.png` | 各投稿に付ける図（1200×675） |
+| `posts/claude/YYYY-MM/YYYY-MM-DD.json` | Claude の投稿（Claude / Claude Code の最新情報）。1日1ファイル。投稿が無い日はファイルが無い |
+| `posts/muse/YYYY-MM/YYYY-MM-DD.json` | Muse の投稿。形は同じ |
+| `images/<claude か muse>/YYYY-MM/<id>.png` | 各投稿に付ける図 |
+| `FORMAT.md` | 投稿ファイルの形のくわしい説明 |
 
 リポジトリ：GitHub の `RYOTA-HUB59/sns-posts`（公開）、`main` ブランチ。push があったら（`push_to_branch`）動きます。このリポジトリにあるものだけで投稿できます。
 
@@ -26,7 +28,7 @@
 
 | 項目 | どう使うか |
 | --- | --- |
-| `id` | 投稿の名前（例 `2026-11-23-01`）。**同じ `id` は2回投稿しない。** 投稿した `id` を覚えておき、ファイルがまた更新されても、投稿ずみの `id` は飛ばす |
+| `id` | 投稿の名前（例 `claude-2026-11-23-01`、`muse-2026-11-23-01`）。リポジトリ全体で1つだけ。**同じ `id` は2回投稿しない。** 投稿した `id` を覚えておき、ファイルがまた更新されても、投稿ずみの `id` は飛ばす |
 | `status` | **`ready` のものだけ投稿する。** `cancelled` は投稿しない（あとで誤りがわかったとき Claude が変える。予約ずみなら Buffer の予約も消す）。`posted` は投稿ずみ |
 | `scheduled_at` | 投稿する日時（日本時間、`+09:00` 付き）。この時刻で Buffer に予約する |
 | `x.thread` | `x_mode` が `"thread"` のとき使う。1つ目を投稿し、2つ目からはその投稿へのリプライとして順につなげる。出典URLは最後のリプライに入っている |
@@ -35,6 +37,9 @@
 | `image.url` | 投稿に付ける画像の公開URL。Buffer にはこれを渡す（X は1本目に、Threads は本文に付ける）。`null` なら画像なしで投稿する |
 | `image.path` | このリポジトリの中の画像の場所（記録用。Buffer には `image.url` を渡す） |
 | `image.alt` | 画像の説明文（代替テキスト）。画像に付ける |
+| `x` が `null` | その投稿は X に出さない（Threads だけ） |
+| `threads` が `null` | その投稿は Threads に出さない（X だけ） |
+| `author` | ファイルのいちばん上にある。`claude` か `muse`。分析のとき、担当ごとに分けて見る |
 | `source`・`topic`・`type`・`image.spec` | 投稿には使わない（記録・分析用）。分析のときに使ってよい |
 
 画像の受け渡し：Buffer の投稿APIは公開URLの画像しか受け取れないため、`image.url`（公開URL）を Buffer の `assets.image.url` に、`image.alt` を `altText` に渡します。
@@ -42,7 +47,7 @@
 ## 3. 投稿時刻の扱い
 
 - `scheduled_at` の時刻のとおりに予約します。時刻を自分で変えたり、まとめたりしません。
-- 時刻は bot っぽく見えないよう、Claude が毎日ばらばらに決めています（6:40〜8:50 / 12:00〜13:50 / 20:00〜22:40 の中）。
+- 時刻は bot っぽく見えないよう、書いた側が毎日ばらばらに決めています。Claude の分は 6:40〜8:50 / 12:00〜13:50 / 20:00〜22:40 の中、Muse の分は Muse が決めた時間帯の中です。
 - `scheduled_at` がもう過ぎている投稿は、投稿しません（古い話を遅れて出さないため）。
 
 ## 4. 本文は書きかえない
