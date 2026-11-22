@@ -1,0 +1,147 @@
+{
+  "date": "2026-11-23",
+  "x_mode": "thread",
+  "generated_at": "2026-11-22T14:10:00+09:00",
+  "posts": [
+    {
+      "id": "2026-11-23-01",
+      "status": "ready",
+      "scheduled_at": "2026-11-23T08:07:00+09:00",
+      "type": "速報要約",
+      "topic": "定期タスクと /loop の実行期間が7日から30日に",
+      "source": {
+        "url": "https://code.claude.com/docs/en/changelog",
+        "title": "Claude Code changelog 2.1.330",
+        "publisher": "Anthropic",
+        "published_at": "2026-11-20",
+        "checked_at": "2026-11-22",
+        "quote": "2.1.330 (November 20, 2026): Changed recurring scheduled tasks and `/loop` to run up to 30 days instead of 7 while their session keeps running, and say when they end; tasks made before this release still end at 7 days"
+      },
+      "image": {
+        "url": "https://raw.githubusercontent.com/RYOTA-HUB59/sns-posts/main/images/2026-11/2026-11-23-01.png",
+        "path": "images/2026-11/2026-11-23-01.png",
+        "alt": "定期タスクと/loopの最長期間が7日から30日に変わったことを示す、前後の比較図",
+        "spec": {
+          "kind": "before_after",
+          "version": "Claude Code v2.1.330",
+          "title": "定期タスクと /loop が *最長30日* 動くように",
+          "before": {
+            "label": "これまで",
+            "items": [
+              "最長 7日 で終わる"
+            ]
+          },
+          "after": {
+            "label": "v2.1.330 から",
+            "items": [
+              "最長 30日 まで動く",
+              "終わる日が表示される"
+            ]
+          },
+          "note": "セッションが動いている間だけ。前のバージョンで作ったタスクは7日のまま"
+        }
+      },
+      "x": {
+        "thread": [
+          "定期タスクと /loop が、最長7日から30日まで動くようになりました（Claude Code v2.1.330）。\n\n終わる日も表示されます。",
+          "条件があります。\n・セッションが動いている間だけ\n・このバージョンより前に作ったタスクは、今までどおり7日で終わる\n\n出典\nhttps://code.claude.com/docs/en/changelog"
+        ],
+        "single": "定期タスクと /loop が、最長7日から30日まで動くようになりました（Claude Code v2.1.330）。\n\n終わる日も表示されます。\n\n条件があります。\n・セッションが動いている間だけ\n・このバージョンより前に作ったタスクは、今までどおり7日で終わる\n\n出典\nhttps://code.claude.com/docs/en/changelog"
+      },
+      "threads": {
+        "text": "定期タスクと /loop が、最長7日から30日まで動くようになりました。\n\n11/20に出た Claude Code v2.1.330 の変更です。いつ終わるかも表示されます。\n\n条件は2つあります。\n・セッションが動いている間だけ\n・このバージョンより前に作ったタスクは、今までどおり7日で終わる\n\n出典：Claude Code 公式 changelog\nhttps://code.claude.com/docs/en/changelog"
+      }
+    },
+    {
+      "id": "2026-11-23-02",
+      "status": "ready",
+      "scheduled_at": "2026-11-23T12:38:00+09:00",
+      "type": "Tips",
+      "topic": "/code-review はバグ専用に。整理の指摘は /simplify",
+      "source": {
+        "url": "https://code.claude.com/docs/en/changelog",
+        "title": "Claude Code changelog 2.1.328",
+        "publisher": "Anthropic",
+        "published_at": "2026-11-19",
+        "checked_at": "2026-11-22",
+        "quote": "2.1.328 (November 19, 2026): Changed `/code-review` on most models to report only bugs and CLAUDE.md violations; run `/simplify` for reuse, simplification and efficiency cleanups / Changed `/code-review` to mark each finding Important, Pre-existing or Nit on most models, and to end each summary with a suggested fix"
+      },
+      "image": {
+        "url": "https://raw.githubusercontent.com/RYOTA-HUB59/sns-posts/main/images/2026-11/2026-11-23-02.png",
+        "path": "images/2026-11/2026-11-23-02.png",
+        "alt": "/code-reviewはバグとCLAUDE.md違反、/simplifyは共通化・単純化・効率化を見る、という対応表",
+        "spec": {
+          "kind": "table",
+          "version": "Claude Code v2.1.328",
+          "title": "`/code-review` と `/simplify` の *使い分け*",
+          "headers": [
+            "コマンド",
+            "見るもの"
+          ],
+          "rows": [
+            [
+              "`/code-review`",
+              "バグ・CLAUDE.md違反"
+            ],
+            [
+              "`/simplify`",
+              "共通化・単純化・効率化"
+            ]
+          ],
+          "note": "多くのモデルで、指摘に Important / Pre-existing / Nit のラベルが付く"
+        }
+      },
+      "x": {
+        "thread": [
+          "/code-review は、バグとCLAUDE.md違反だけを指摘する形に変わりました（Claude Code v2.1.328、多くのモデルで）。\n\n共通化・単純化・効率化の指摘がほしいときは /simplify を使います。",
+          "多くのモデルでは、指摘に3つのラベルが付きます。\n・Important（重要）\n・Pre-existing（変更の前からある問題）\n・Nit（細かい点）\n\nまとめの最後には直し方の案も付きます。\n\n出典\nhttps://code.claude.com/docs/en/changelog"
+        ],
+        "single": "/code-review は、バグとCLAUDE.md違反だけを指摘する形に変わりました（Claude Code v2.1.328、多くのモデルで）。\n\n共通化・単純化・効率化の指摘がほしいときは /simplify を使います。\n\n多くのモデルでは、指摘に3つのラベルが付きます。\n・Important（重要）\n・Pre-existing（変更の前からある問題）\n・Nit（細かい点）\n\nまとめの最後には直し方の案も付きます。\n\n出典\nhttps://code.claude.com/docs/en/changelog"
+      },
+      "threads": {
+        "text": "Claude Code の /code-review は、バグとCLAUDE.md違反だけを指摘する形に変わりました（v2.1.328、多くのモデルで）。\n\n共通化・単純化・効率化といった整理の指摘は、/simplify の担当です。\n\nもう1つの変更として、多くのモデルでは /code-review の指摘に Important（重要）・Pre-existing（変更の前からある問題）・Nit（細かい点）のラベルが付き、まとめの最後に直し方の案が付くようになりました。\n\n出典：Claude Code 公式 changelog\nhttps://code.claude.com/docs/en/changelog"
+      }
+    },
+    {
+      "id": "2026-11-23-03",
+      "status": "ready",
+      "scheduled_at": "2026-11-23T21:23:00+09:00",
+      "type": "知られざる小ネタ",
+      "topic": "/tasks に定期タスク・/loop・フォークも並ぶ",
+      "source": {
+        "url": "https://code.claude.com/docs/en/changelog",
+        "title": "Claude Code changelog 2.1.329",
+        "publisher": "Anthropic",
+        "published_at": "2026-11-19",
+        "checked_at": "2026-11-22",
+        "quote": "2.1.329 (November 19, 2026): Added this session's scheduled tasks, `/loop` wakeups, the goal and this conversation's forks to `/tasks`; x stops one after asking / Changed the `/tasks` header and the footer's background count to one number covering shells, monitors, MCP calls, agents, workflows and scheduled tasks"
+      },
+      "image": {
+        "url": "https://raw.githubusercontent.com/RYOTA-HUB59/sns-posts/main/images/2026-11/2026-11-23-03.png",
+        "path": "images/2026-11/2026-11-23-03.png",
+        "alt": "/tasksに定期タスク・/loopの予約・会話のフォークが並ぶようになったことを示す図",
+        "spec": {
+          "kind": "points",
+          "version": "Claude Code v2.1.329",
+          "title": "`/tasks` に *並ぶもの* が増えました",
+          "points": [
+            "このセッションの定期タスク",
+            "/loop の次の予約",
+            "この会話のフォーク"
+          ],
+          "note": "止めたいものは選んで x キー（確認のあとに止まる）"
+        }
+      },
+      "x": {
+        "thread": [
+          "Claude Code の /tasks に、このセッションの定期タスク・/loop の次の予約・会話のフォークも並ぶようになりました（v2.1.329）。",
+          "止めたいものは選んで x キー。確認のあとに止まります。\n\n画面下の数字も、シェル・エージェント・定期タスクなどをまとめた1つの数になりました。\n\n出典\nhttps://code.claude.com/docs/en/changelog"
+        ],
+        "single": "Claude Code の /tasks に、このセッションの定期タスク・/loop の次の予約・会話のフォークも並ぶようになりました（v2.1.329）。\n\n止めたいものは選んで x キー。確認のあとに止まります。\n\n画面下の数字も、シェル・エージェント・定期タスクなどをまとめた1つの数になりました。\n\n出典\nhttps://code.claude.com/docs/en/changelog"
+      },
+      "threads": {
+        "text": "Claude Code の /tasks に、このセッションの定期タスク・/loop の次の予約・会話のフォークも並ぶようになりました（v2.1.329）。\n\n止めたいものは、選んで x キーを押すと確認のあとに止まります。\n\nあわせて、画面下に出る「裏で動いている数」も1つにまとまりました。シェル・モニター・MCPの呼び出し・エージェント・ワークフロー・定期タスクを合わせた数です。\n\n出典：Claude Code 公式 changelog\nhttps://code.claude.com/docs/en/changelog"
+      }
+    }
+  ]
+}
