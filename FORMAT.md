@@ -2,6 +2,7 @@
 
 公開リポジトリ `RYOTA-HUB59/sns-posts` に投稿ファイルを置くと、Grok が読んで Buffer で X・Threads に投稿します。
 Claude も Muse も、この形で書きます。運用ルールは ClaudeCodeWorkSpace の `projects/sns-ops/RULES.md` を守ります。
+投稿を作る前に、毎回 `TUNING.md`（Grok が分析から書く調整の方針）を読み、それに従います。
 
 ## 置き場所
 
