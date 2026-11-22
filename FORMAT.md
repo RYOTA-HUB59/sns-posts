@@ -1,7 +1,7 @@
-# 投稿ファイルの書き方（Claude・Muse 共通）
+# 投稿ファイルの書き方（Claude・Muse・Grok 共通）
 
 公開リポジトリ `RYOTA-HUB59/sns-posts` に投稿ファイルを置くと、Grok が読んで Buffer で X・Threads に投稿します。
-Claude も Muse も、この形で書きます。運用ルールは ClaudeCodeWorkSpace の `projects/sns-ops/RULES.md` を守ります。
+Claude・Muse・Grok とも、この形で書きます。運用ルールは ClaudeCodeWorkSpace の `projects/sns-ops/RULES.md` を守ります。
 投稿を作る前に、毎回 `TUNING.md`（Grok が分析から書く調整の方針）を読み、それに従います。
 
 ## 置き場所
@@ -10,6 +10,7 @@ Claude も Muse も、この形で書きます。運用ルールは ClaudeCodeWo
 | --- | --- | --- |
 | Claude | `posts/claude/YYYY-MM/YYYY-MM-DD.json` | `images/claude/YYYY-MM/<id>.png` |
 | Muse | `posts/muse/YYYY-MM/YYYY-MM-DD.json` | `images/muse/YYYY-MM/<id>.png` |
+| Grok | `posts/grok/YYYY-MM/YYYY-MM-DD.json` | `images/grok/YYYY-MM/<id>.png` |
 
 - 自分のフォルダ以外のファイルは変えません。
 - 1日1ファイル。投稿が無い日はファイルを作りません。
@@ -20,15 +21,15 @@ Claude も Muse も、この形で書きます。運用ルールは ClaudeCodeWo
 
 ```json
 {
-  "author": "muse",
-  "date": "2026-11-23",
+  "author": "grok",
+  "date": "2026-11-24",
   "x_mode": "thread",
-  "generated_at": "2026-11-23T06:00:00+09:00",
+  "generated_at": "2026-11-24T06:00:00+09:00",
   "posts": [
     {
-      "id": "muse-2026-11-23-01",
+      "id": "grok-2026-11-24-01",
       "status": "ready",
-      "scheduled_at": "2026-11-23T10:23:00+09:00",
+      "scheduled_at": "2026-11-24T09:23:00+09:00",
       "type": "（投稿の型。担当ごとに決める）",
       "topic": "（話題を短く。記録・分析用）",
       "source": {
@@ -36,12 +37,12 @@ Claude も Muse も、この形で書きます。運用ルールは ClaudeCodeWo
         "title": "出典の題名",
         "publisher": "出した人・会社",
         "published_at": "2026-11-20",
-        "checked_at": "2026-11-23",
+        "checked_at": "2026-11-24",
         "quote": "出典の該当部分の原文（1〜2行）"
       },
       "image": {
-        "url": "https://raw.githubusercontent.com/RYOTA-HUB59/sns-posts/main/images/muse/2026-11/muse-2026-11-23-01.png",
-        "path": "images/muse/2026-11/muse-2026-11-23-01.png",
+        "url": "https://raw.githubusercontent.com/RYOTA-HUB59/sns-posts/main/images/grok/2026-11/grok-2026-11-24-01.png",
+        "path": "images/grok/2026-11/grok-2026-11-24-01.png",
         "alt": "図の説明（読み上げ用）"
       },
       "x": {
@@ -58,15 +59,21 @@ Claude も Muse も、この形で書きます。運用ルールは ClaudeCodeWo
 
 | 項目 | 決まり |
 | --- | --- |
-| `author` | `claude` か `muse`。フォルダ名と同じ |
+| `author` | `claude` / `muse` / `grok`。フォルダ名と同じ |
 | `date` | ファイル名の日付と同じ |
 | `x_mode` | `thread`（X は140字ごとにリプライで分ける）か `single`（長文1本）。いまは `thread` |
 | `id` | `<author>-<date>-<2けたの連番>`。リポジトリ全体で1つだけの名前にする。一度使った `id` は二度と使わない |
 | `status` | 書くときは `ready`。あとで誤りがわかったら `cancelled` に変える（まだ投稿前なら出なくなる）。投稿ずみは消さない |
-| `scheduled_at` | 日本時間（`+09:00`）。00・15・30・45分ちょうどは使わない。毎日ばらばらにする。Claude と Muse の時間帯は重ねない（`RULES.md`） |
+| `scheduled_at` | 日本時間（`+09:00`）。00・15・30・45分ちょうどは使わない。毎日ばらばらにする。Claude・Muse・Grok の時間帯は重ねない |
 | `source` | 一次情報だけ。`url` と `quote`（原文）は必ず入れる。本文には `quote` にあることだけを書く |
 | `image` | 図を1枚。`url` は `https://raw.githubusercontent.com/RYOTA-HUB59/sns-posts/main/` ＋ `path`。画像に「非公式」と入れない。付けられない日は `image` を `null` |
 | `x` | X に出さない投稿は `x` を `null` にする |
 | `threads` | Threads に出さない投稿は `threads` を `null` にする |
 
 文字数：X は全角140字（X の数え方で280。日本語1字=2、英数字1字=1、URL=23）。Threads は500字まで。
+
+## Grok 担当の特記
+
+- 対象：**Grok Build**（https://x.ai/changelog/build）と **Grok Bot**（https://x.ai/changelog/bot）の公式チェンジログ・リリースノート
+- 時間帯：9:10〜11:40 / 14:10〜16:40 / 18:10〜19:40（Claude・Muse と重ねない）
+- 投稿の型：速報要約・Tips・知られざる小ネタ（Claude と同様）
