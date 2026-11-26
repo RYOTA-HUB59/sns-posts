@@ -1,0 +1,139 @@
+{
+  "author": "claude",
+  "date": "2026-11-27",
+  "x_mode": "thread",
+  "generated_at": "2026-11-27T05:55:00+09:00",
+  "posts": [
+    {
+      "id": "claude-2026-11-27-01",
+      "status": "ready",
+      "scheduled_at": "2026-11-27T07:23:00+09:00",
+      "type": "速報要約",
+      "topic": "Claude Code の /ship で PR の作成から修正まで進める",
+      "source": {
+        "url": "https://claude.com/blog/introducing-claude-ship",
+        "title": "Introducing Claude Ship",
+        "publisher": "Anthropic",
+        "published_at": "2026-11-23",
+        "checked_at": "2026-11-27",
+        "quote": "Developers can try Claude Ship on their own pull requests with the new /ship command in Claude Code. When a change is ready, they run /ship. Claude pushes it, opens the PR, reviews the change, and works on feedback and failing checks to help get it ready to merge."
+      },
+      "image": {
+        "path": "images/claude/2026-11/claude-2026-11-27-01.png",
+        "alt": "Claude Codeで/shipを実行したときに進む流れを示す手順図",
+        "spec": {
+          "kind": "points",
+          "version": "Claude Code /ship",
+          "title": "`/ship` で *PRの面倒まで* 任せる",
+          "points": [
+            "プッシュしてPRを開く",
+            "変更をレビューする",
+            "指摘と失敗チェックに対応"
+          ],
+          "note": "マージは権限とブランチルール次第"
+        },
+        "url": "https://raw.githubusercontent.com/RYOTA-HUB59/sns-posts/main/images/claude/2026-11/claude-2026-11-27-01.png"
+      },
+      "x": {
+        "thread": [
+          "Claude Code に /ship コマンドが加わりました。Claude Ship（ベータ）の一部で、Team・Enterprise プランの GitHub リポジトリが対象です。\n\n変更の準備ができたら /ship を実行すると、プッシュ、PR作成、レビュー、指摘や失敗したチェックへの対応まで進めてくれます。",
+          "マージできるかは、実行した人の権限とリポジトリのブランチルール次第です。\n\n管理者がリポジトリ単位でオンにすると、/ship を打たなくても、PR のレビューや修正などが自動で動きます。\n\n出典\nhttps://claude.com/blog/introducing-claude-ship"
+        ],
+        "single": "Claude Code に /ship コマンドが加わりました。Claude Ship（ベータ）の一部で、Team・Enterprise プランの GitHub リポジトリが対象です。\n\n変更の準備ができたら /ship を実行すると、プッシュ、PR作成、レビュー、指摘や失敗したチェックへの対応まで進めてくれます。\n\nマージできるかは、実行した人の権限とリポジトリのブランチルール次第です。\n\n管理者がリポジトリ単位でオンにすると、/ship を打たなくても、PR のレビューや修正などが自動で動きます。\n\n出典\nhttps://claude.com/blog/introducing-claude-ship"
+      },
+      "threads": {
+        "text": "Claude Code に /ship コマンドが加わりました。Claude Ship（ベータ）の一部で、Team・Enterprise プランの GitHub リポジトリが対象です。\n\n変更の準備ができたら /ship を実行すると、Claude が次のことを進めます。\n・プッシュしてPRを開く\n・変更をレビューする\n・指摘や失敗したチェックに対応する\n\nマージできるかどうかは、実行した人の権限とリポジトリのブランチルール次第です。管理者がリポジトリ単位でオンにすれば、/ship を打たなくても、PR のレビューや修正などが自動で動きます。\n\n出典：Anthropic 公式ブログ\nhttps://claude.com/blog/introducing-claude-ship"
+      }
+    },
+    {
+      "id": "claude-2026-11-27-02",
+      "status": "ready",
+      "scheduled_at": "2026-11-27T12:41:00+09:00",
+      "type": "公式ブログ解説",
+      "topic": "MCP サーバーがツールといっしょにスキルを配れる（Skills over MCP）",
+      "source": {
+        "url": "https://claude.com/resources/articles/skills-over-mcp-tasks-and-more",
+        "title": "MCP servers can now ship skills, run tasks, and more with Claude",
+        "publisher": "Anthropic",
+        "published_at": "2026-11-24",
+        "checked_at": "2026-11-27",
+        "quote": "With Skills over MCP, servers can publish skills alongside their tools to help Claude take on longer, multi-step work. Claude loads a skill only when it's needed, keeping context use low. … Skills over MCP is in public beta in Claude and Claude Code, on by default for Pro, Max, and Ultra plans and available to Team plans once an admin enables it."
+      },
+      "image": {
+        "path": "images/claude/2026-11/claude-2026-11-27-02.png",
+        "alt": "MCPサーバーがツールだけを配っていた状態から、スキルもいっしょに配れる状態に変わったことを示す前後の比較図",
+        "spec": {
+          "kind": "before_after",
+          "version": "Skills over MCP（ベータ）",
+          "title": "MCPサーバーが *スキルも* 配れる",
+          "before": {
+            "label": "これまで",
+            "items": [
+              "ツールの名前と説明だけ"
+            ]
+          },
+          "after": {
+            "label": "これから",
+            "items": [
+              "ツールといっしょにスキルを公開",
+              "必要なときだけ読み込まれる"
+            ]
+          },
+          "note": "Team は管理者が有効にする"
+        },
+        "url": "https://raw.githubusercontent.com/RYOTA-HUB59/sns-posts/main/images/claude/2026-11/claude-2026-11-27-02.png"
+      },
+      "x": {
+        "thread": [
+          "MCP サーバーが、ツールといっしょに「スキル」も配れるようになりました（ベータ）。\n\nSkills over MCP という機能で、Claude と Claude Code の両方で使えます。",
+          "スキルは必要なときだけ読み込まれ、サーバーの更新に合わせて変わります。ユーザー側で別に入れる必要はありません。\n\nPro・Max・Ultra は初期でオン。Team は管理者が有効にしたあとです。\n\n出典\nhttps://claude.com/resources/articles/skills-over-mcp-tasks-and-more"
+        ],
+        "single": "MCP サーバーが、ツールといっしょに「スキル」も配れるようになりました（ベータ）。\n\nSkills over MCP という機能で、Claude と Claude Code の両方で使えます。\n\nスキルは必要なときだけ読み込まれ、サーバーの更新に合わせて変わります。ユーザー側で別に入れる必要はありません。\n\nPro・Max・Ultra は初期でオン。Team は管理者が有効にしたあとです。\n\n出典\nhttps://claude.com/resources/articles/skills-over-mcp-tasks-and-more"
+      },
+      "threads": {
+        "text": "MCP サーバーが、ツールといっしょにスキルも公開できるようになりました（Skills over MCP・パブリックベータ）。\n\nこれまでは、ツールの名前と説明だけでした。これからは、サーバー側がベストプラクティスや手順もスキルにして配れます。\n・必要なときだけ読み込まれる\n・サーバーの更新に合わせて変わる\n・ユーザー側で別に入れる必要はない\n\nClaude と Claude Code で使えます。Pro・Max・Ultra は初期でオン、Team は管理者が有効にしたあとです。\n\n出典：Claude 公式ブログ\nhttps://claude.com/resources/articles/skills-over-mcp-tasks-and-more"
+      }
+    },
+    {
+      "id": "claude-2026-11-27-03",
+      "status": "ready",
+      "scheduled_at": "2026-11-27T21:37:00+09:00",
+      "type": "速報要約",
+      "topic": "artifact を Mac・Windows のアプリとして入れられる",
+      "source": {
+        "url": "https://claude.com/resources/articles/install-as-app",
+        "title": "Install as app (Claude blog)",
+        "publisher": "Anthropic",
+        "published_at": "2026-11-24",
+        "checked_at": "2026-11-27",
+        "quote": "When an artifact is installed as a Mac or Windows app, it gets its own icon and opens in its own window instead of inside Claude. Installed apps can send notifications or add items to your menu bar or system tray. You choose permissions for each app, … Install as app is rolling out in beta on all plans."
+      },
+      "image": {
+        "path": "images/claude/2026-11/claude-2026-11-27-03.png",
+        "alt": "artifactをアプリとして入れたときにできることを並べた要点図",
+        "spec": {
+          "kind": "points",
+          "version": "Install as app（ベータ）",
+          "title": "artifact が *Mac・Windowsのアプリ* に",
+          "points": [
+            "専用のアイコンとウィンドウで開く",
+            "通知やメニューバーへの追加ができる",
+            "権限はアプリごとに選べる"
+          ],
+          "note": "Claude for Mac / Windows をアップデートして使う"
+        },
+        "url": "https://raw.githubusercontent.com/RYOTA-HUB59/sns-posts/main/images/claude/2026-11/claude-2026-11-27-03.png"
+      },
+      "x": {
+        "thread": [
+          "Claude の artifact を、Mac や Windows のアプリとして入れられるようになりました（ベータ）。\n\n専用のアイコンと専用のウィンドウで、ほかのアプリと同じように開きます。",
+          "手順は、artifact を試したあとに「Install as app」を押します。\n\n通知やメニューバーへの追加もできます。権限はアプリごとに選べます。\n\n出典\nhttps://claude.com/resources/articles/install-as-app"
+        ],
+        "single": "Claude の artifact を、Mac や Windows のアプリとして入れられるようになりました（ベータ）。\n\n専用のアイコンと専用のウィンドウで、ほかのアプリと同じように開きます。\n\n手順は、artifact を試したあとに「Install as app」を押します。\n\n通知やメニューバーへの追加もできます。権限はアプリごとに選べます。\n\n出典\nhttps://claude.com/resources/articles/install-as-app"
+      },
+      "threads": {
+        "text": "Claude の artifact を、Mac や Windows のアプリとして入れられるようになりました（ベータ・全プランで順次展開）。\n\n入れた artifact は、専用のアイコンとウィンドウで開きます。\n・通知を送れる\n・メニューバーやシステムトレイに項目を足せる\n・権限はアプリごとに選べる\n\n手順は、Claude for Mac / Windows をアップデートして、artifact を試したあとに「Install as app」を選びます。\n\n出典：Claude 公式ブログ\nhttps://claude.com/resources/articles/install-as-app"
+      }
+    }
+  ]
+}
